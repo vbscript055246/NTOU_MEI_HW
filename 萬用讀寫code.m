@@ -45,7 +45,7 @@ while(~feof(fid))   % 讀到整個檔案讀完, EOF = End Of File, 還沒結束�
 
 
         % 從3開始是因為 第一項是"日期" 第二項是"小時"
-        for i  = 3:length(result)   % 收集要計算的資料
+        for i  = 3:length(result)   % 收集要計算的資料, 這邊的每種資料都會算它的STD AVG SUM
             if result(i) ~= -9999   % 如果為有效值
 
                 % 大二資料結構, 簡易實作鏈結串列XD
@@ -84,7 +84,7 @@ function [wind_speed_AVG,wind_deg_AVG] = output(fod,D,wind_speed_AVG,wind_deg_AV
     wind_deg_AVG =[wind_deg_AVG,AVG(7)];
     % ===============================================
 
-    % 真正寫入檔案,(要寫入的資料都到齊了)
+    % 真正寫入檔案,(要寫入的資料都到齊了), 這邊就是重點的對照資料的順序, 填入正確的數字, 就前面都不懂也沒關係了(理論上前面所有數據都有算AVG STD SUM maximum, 所以數字填對就結束了)
     fprintf(fod,'%d %5.2f     %5.2f       %5.2f      %5.2f        %5.2f      %5.2f      %5.2f       %5.2f      %.2f      %.2f\n',date,AVG(2),STD(2),AVG(1),STD(1),AVG(6),STD(6),AVG(7),STD(7),maximum(8),SUM(12));
 end
 
