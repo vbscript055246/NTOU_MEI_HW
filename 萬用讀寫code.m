@@ -1,4 +1,4 @@
-clear;clc   % 清空畫面
+clear;clc   % 清空變數暫存, 清空畫面
 
 % 準備讀寫檔, 檔名視情況調整
 fid = fopen('ML_Final_02.inp','r');
