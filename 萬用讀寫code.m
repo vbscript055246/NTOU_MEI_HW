@@ -25,11 +25,12 @@ while(~feof(fid))   % 讀到整個檔案讀完, EOF = End Of File, 還沒結束�
     % 以下處理不管"數據"有幾個都可以讀
     str = fgetl(fid);   % 先把一行數據全部當字串讀
     result = sscanf(str,'%f');  % 讓電腦從字串中自己讀出一個一個的浮點數, result是個"陣列" 
-    % 別再學"他"說矩陣啦!一點都不專業!
+                                % 別再學"他"說矩陣啦!一點都不專業!
 
 
     if length(result)   % 如果有讀到的浮點數 陣列長度會大於1, 反之就是讀到字串了
-    %  在電腦中只要不是 0 都是Ture
+                        %  在電腦中只要不是 0 都是Ture
+                        
         if result(1) ~= date    % 如果日期沒換就保存資料, 換日期了就計算並產出資料
                                 % https://i.imgur.com/RGbeTZp.png
                                 % result(1)是因為陣列的第一格是存放日期或是說第一個讀到的浮點數是日期
@@ -58,7 +59,7 @@ while(~feof(fid))   % 讀到整個檔案讀完, EOF = End Of File, 還沒結束�
          end
     end
 
-    % 如果要跟輸入檔一樣上面要有, St_name, ST_No, No_data 等等可以把註解拿掉就可以用了
+    % 如果要跟輸入檔一樣上面要有, St_name, ST_No, No_data 可以把註解拿掉就可以用了
     % https://i.imgur.com/nZLP3Mn.png
     %fprintf(fod,'%s\n',str);
 end
